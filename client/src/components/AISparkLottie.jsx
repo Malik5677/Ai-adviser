@@ -1,10 +1,14 @@
 import { useMemo } from "react";
+<<<<<<< HEAD
 import * as LottieModule from "lottie-react";
 
 const Lottie =
   LottieModule?.default?.default ??
   LottieModule?.default ??
   LottieModule;
+=======
+import Lottie from "lottie-react";
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 /**
  * A small hand-built Lottie JSON (no external asset download needed —

@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
+<<<<<<< HEAD
 import * as Icons from "lucide-react";
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 import { RefreshCcw, Sparkles, Star } from "lucide-react";
 import TypingText from "./TypingText";
 import CareerTimeline from "./CareerTimeline";
@@ -23,6 +26,7 @@ function fireConfetti() {
   confetti({ particleCount: 90, spread: 100, origin: { y: 0.35 }, colors, startVelocity: 45 });
 }
 
+<<<<<<< HEAD
 function StreamHero({ stream }) {
   const Icon = Icons[stream.icon] || Icons.Sparkles;
   return (
@@ -44,6 +48,8 @@ function StreamHero({ stream }) {
   );
 }
 
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 export default function Result({ name, result, onRestart }) {
   const [headlineDone, setHeadlineDone] = useState(false);
 
@@ -53,8 +59,12 @@ export default function Result({ name, result, onRestart }) {
   }, []);
 
   if (!result) return null;
+<<<<<<< HEAD
   const { type, primary, alternates = [], recommendedStream, futurePrograms = [], headline, reasoning, encouragement, source } = result;
   const isStream = type === "stream";
+=======
+  const { primary, alternates = [], headline, reasoning, encouragement, source } = result;
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
   return (
     <motion.div
@@ -68,7 +78,11 @@ export default function Result({ name, result, onRestart }) {
         className="flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full glass-card border-niilm-cyan/30 text-xs uppercase tracking-[0.2em] text-niilm-cyan"
       >
         <Sparkles size={14} />
+<<<<<<< HEAD
         {source === "nvidia-ai-flavor" ? "Styled by NVIDIA AI" : "Recommendation Ready"}
+=======
+        {source === "nvidia-ai" ? "Recommendation by NVIDIA AI" : "Recommendation Ready"}
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
       </motion.div>
 
       <div className="max-w-2xl text-center min-h-[3.5rem]">
@@ -87,9 +101,20 @@ export default function Result({ name, result, onRestart }) {
         </motion.p>
       )}
 
+<<<<<<< HEAD
       <div className="mt-10 w-full max-w-2xl">
         {isStream ? <StreamHero stream={recommendedStream} /> : <ProgramCard program={primary} featured />}
       </div>
+=======
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 0.4, type: "spring", stiffness: 100, damping: 16 }}
+        className="mt-10 w-full max-w-2xl"
+      >
+        <ProgramCard program={primary} featured />
+      </motion.div>
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
       {encouragement && (
         <motion.p
@@ -103,6 +128,7 @@ export default function Result({ name, result, onRestart }) {
         </motion.p>
       )}
 
+<<<<<<< HEAD
       {isStream && futurePrograms.length > 0 && (
         <div className="mt-14 w-full max-w-4xl">
           <motion.h3
@@ -125,6 +151,9 @@ export default function Result({ name, result, onRestart }) {
       )}
 
       {!isStream && alternates.length > 0 && (
+=======
+      {alternates.length > 0 && (
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         <div className="mt-14 w-full max-w-4xl">
           <motion.h3
             initial={{ opacity: 0 }}

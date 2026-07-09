@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+<<<<<<< HEAD
 
 const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
 const DEFAULT_MODEL = process.env.NVIDIA_MODEL || "meta/llama-3.1-70b-instruct";
@@ -50,19 +51,70 @@ Write the headline and encouragement now, as JSON only.`;
  */
 async function getAIFlavorText(answers, deterministicResult) {
   const apiKey = process.env.NVIDIA_API_KEY;
+=======
+const { PROGRAMS } = require("../data/niilmData");
+
+const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
+const DEFAULT_MODEL =
+  process.env.NVIDIA_MODEL || "meta/llama-3.1-70b-instruct";
+
+function buildProgramCatalogue() {
+  return PROGRAMS.map(
+    (p) =>
+      `- id: "${p.id}" | ${p.name} (${p.specialisation}) | group: ${p.group} | careers: ${p.careers.join(", ")}`
+  ).join("\n");
+}
+
+function buildSystemPrompt() {
+  return `You are the AI Career Advisor for a live showcase kiosk at NIILM University.
+A student standing at the kiosk has just answered a short questionnaire.
+Your job is to recommend ONE best-fit program from NIILM University's real catalogue below,
+plus up to two good alternates, and explain the choice in a warm, encouraging, easy-to-understand way.
+
+NIILM University program catalogue (you may ONLY recommend ids from this list):
+${buildProgramCatalogue()}
+
+Respond with STRICT JSON ONLY, no markdown fences, no commentary, matching exactly this shape:
+{
+  "primaryProgramId": "<one id from the catalogue>",
+  "alternateProgramIds": ["<id>", "<id>"],
+  "headline": "<one short punchy sentence, max 12 words, speaking directly to the student by name>",
+  "reasoning": "<2-3 sentences explaining why this program fits their subject and interest choices>",
+  "encouragement": "<1 short, energetic closing sentence about their future at NIILM>"
+}`;
+}
+
+function buildUserPrompt({ name, qualification, subjects, interest, engineeringFocus }) {
+  return `Student name: ${name}
+Current qualification: ${qualification}
+Favourite subjects: ${subjects.join(", ") || "not specified"}
+Broad interest area: ${interest || "not specified"}
+Engineering focus (if applicable): ${engineeringFocus || "n/a"}
+
+Pick the single best-fit program id for this student and respond with the JSON object only.`;
+}
+
+async function getAIRecommendation(answers) {
+  const apiKey = process.env.NVIDIA_API_KEY?.trim();
+
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   if (!apiKey) {
     throw new Error("NVIDIA_API_KEY not set");
   }
 
+<<<<<<< HEAD
   const pickName =
     deterministicResult.type === "stream"
       ? `${deterministicResult.recommendedStream.label} stream`
       : deterministicResult.primary.name;
 
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   const body = {
     model: DEFAULT_MODEL,
     messages: [
       { role: "system", content: buildSystemPrompt() },
+<<<<<<< HEAD
       {
         role: "user",
         content: buildUserPrompt({
@@ -75,11 +127,22 @@ async function getAIFlavorText(answers, deterministicResult) {
     temperature: 0.7,
     top_p: 0.9,
     max_tokens: 150,
+=======
+      { role: "user", content: buildUserPrompt(answers) }
+    ],
+    temperature: 0.6,
+    top_p: 0.9,
+    max_tokens: 400,
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
     stream: false
   };
 
   const controller = new AbortController();
+<<<<<<< HEAD
   const timeout = setTimeout(() => controller.abort(), 12000);
+=======
+  const timeout = setTimeout(() => controller.abort(), 30000);
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
   let response;
   try {
@@ -93,6 +156,14 @@ async function getAIFlavorText(answers, deterministicResult) {
       body: JSON.stringify(body),
       signal: controller.signal
     });
+<<<<<<< HEAD
+=======
+  } catch (err) {
+    if (err.name === "AbortError") {
+      throw new Error("NVIDIA request timed out after 30 seconds");
+    }
+    throw err;
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   } finally {
     clearTimeout(timeout);
   }
@@ -104,12 +175,22 @@ async function getAIFlavorText(answers, deterministicResult) {
 
   const data = await response.json();
   const raw = data?.choices?.[0]?.message?.content?.trim() || "";
+<<<<<<< HEAD
   const cleaned = raw.replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
+=======
+
+  const cleaned = raw
+    .replace(/^```json/i, "")
+    .replace(/^```/, "")
+    .replace(/```$/, "")
+    .trim();
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
   let parsed;
   try {
     parsed = JSON.parse(cleaned);
   } catch (err) {
+<<<<<<< HEAD
     throw new Error(`Could not parse NVIDIA response as JSON: ${cleaned.slice(0, 200)}`);
   }
 
@@ -127,3 +208,26 @@ async function getAIFlavorText(answers, deterministicResult) {
 }
 
 module.exports = { getAIFlavorText };
+=======
+    throw new Error(
+      `Could not parse NVIDIA response as JSON: ${cleaned.slice(0, 200)}`
+    );
+  }
+
+  const validIds = new Set(PROGRAMS.map((p) => p.id));
+
+  if (!validIds.has(parsed.primaryProgramId)) {
+    throw new Error(
+      `NVIDIA response used an unknown program id: ${parsed.primaryProgramId}`
+    );
+  }
+
+  parsed.alternateProgramIds = (parsed.alternateProgramIds || []).filter((id) =>
+    validIds.has(id)
+  );
+
+  return parsed;
+}
+
+module.exports = { getAIRecommendation };
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c

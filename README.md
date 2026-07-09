@@ -11,6 +11,7 @@ University**, presented with a full cinematic reveal.
 
 1. **Landing** — animated hero screen, "Start My Journey"
 2. **Name** — student types their name
+<<<<<<< HEAD
 3. **Qualification** — Class 10 / Class 12 / Diploma / Graduate, each with its own path:
 
    **Class 10 path** (mirrors the real choice every Class 10 student faces):
@@ -41,16 +42,36 @@ Early versions of this tool let the AI both *pick* the program and *explain* the
 - **The NVIDIA API, when configured, is only ever asked to restyle the headline and one encouragement line** on top of the already-decided, fact-checked result. It's explicitly instructed not to introduce new facts or relationships, and its output is discarded (falling back to a deterministic template) if it doesn't look like clean, on-topic JSON.
 
 This means the recommendation itself is never dependent on — or at the mercy of — what a language model decides to say.
+=======
+3. **Qualification** — 10th / 12th / Diploma / Graduate
+4. **Favourite Subjects** *(only shown for Class 12 students)* — multi-select
+5. **Interest** — Engineering, Management & Law, Pharmacy, Agriculture,
+   Fashion Design, Beauty & Wellness, Hotel Management, or "Not sure"
+   - If **Engineering** is picked, a follow-up asks which branch excites
+     them most (AI/Coding, Electronics/IoT, Machines/Robotics,
+     Infrastructure, Energy) — mapped straight to a NIILM B.Tech branch.
+6. **AI Thinking** — animated brain visual while the recommendation is generated
+7. **Result** — confetti, AI-generated headline (typed out live), the
+   recommended program with a tilting "image" card, two runner-up programs,
+   an animated career-journey timeline, and the list of companies hiring
+   NIILM graduates.
+
+All program data (branches, specialisations, careers, campus highlights) was
+extracted directly from the NIILM University presentation deck you provided.
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 ---
 
 ## ✨ Features
 
+<<<<<<< HEAD
 - Board-aware Class 10 stream selector (CBSE / HBSE), matching how Indian students actually choose their path
 - Separate, correct Class 12 subject list (not reused from Class 10)
 - Diploma/Graduate "what do you already hold" path with tailored next-step recommendations
 - Deterministic, fact-checked recommendation engine — works fully offline, no API key required
 - Real, working "Check it out" links to the correct NIILM University department page for every program
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 - Aurora animated gradient background
 - Three.js / React Three Fiber particle universe
 - AI-style typewriter text effect for the recommendation reveal
@@ -63,8 +84,14 @@ This means the recommendation itself is never dependent on — or at the mercy o
 - Optional synthesized sound effects (click / select / reveal — no audio
   files needed, muteable)
 - Fully responsive, dark premium theme
+<<<<<<< HEAD
 - Graceful AI flavor-text fallback: if the NVIDIA API key is missing or the request
   fails, a deterministic template takes over instantly so the live demo never breaks
+=======
+- Graceful offline fallback: if the NVIDIA API key is missing or the request
+  fails, a local rule-based recommendation engine takes over instantly so
+  the live demo never breaks
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 ---
 
@@ -193,10 +220,27 @@ Each program entry looks like:
 }
 ```
 
+<<<<<<< HEAD
 The program catalogue in `server/data/niilmData.js` is the only source of
 truth for programs, tags, and links — the deterministic engine (and, for
 flavor text only, the NVIDIA model) both work from it, so a course NIILM
 doesn't actually offer can never appear.
+=======
+The NVIDIA model is prompted with this exact catalogue and is instructed to
+only recommend a program `id` from this list — so it can never invent a
+course NIILM doesn't actually offer.
+
+---
+
+## 🛡️ Why the AI call can't break the demo
+
+`server/index.js` always tries the NVIDIA API first. If the key is missing,
+the network is down, the response times out (15s), or the model returns
+something unparsable, the server silently falls back to
+`server/utils/recommend.js` — a deterministic scoring engine using the
+student's subjects + interest — and still returns a complete, well-formatted
+result. The front-end doesn't need to know which path was used.
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 ---
 

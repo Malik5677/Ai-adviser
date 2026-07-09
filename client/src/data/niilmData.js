@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Structured data extracted from the NIILM University presentation deck AND
 // the live NIILM University website (niilmuniversity.ac.in/departmentslug/*),
 // which was fetched to confirm every `link` below is a real, working page.
@@ -6,6 +7,11 @@
 // real programs.
 
 const SITE = "https://www.niilmuniversity.ac.in";
+=======
+// Offline fallback copy of server/data/niilmData.js
+// Keeps the kiosk fully functional even if the backend/API is briefly down
+// during a live demo. If you edit program data, update BOTH files.
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 export const PROGRAMS = [
   {
@@ -13,6 +19,7 @@ export const PROGRAMS = [
     group: "B.Tech Engineering",
     name: "B.Tech Computer Science Engineering",
     specialisation: "AI · Machine Learning · Data Science",
+<<<<<<< HEAD
     tags: ["math", "computer-science", "physics", "logic", "information-technology", "artificial-intelligence"],
     interests: ["engineering", "coding", "ai"],
     streamFit: ["non-medical", "both-combined"],
@@ -20,6 +27,13 @@ export const PROGRAMS = [
     highlights: ["AI & Robotics Labs", "Apple Mac Lab", "Mentors from IIT & IIM", "AI-integrated curriculum"],
     blurb: "The flagship program at NIILM — every core CS subject is paired with hands-on AI, ML and Data Science project work.",
     link: `${SITE}/departmentslug/engineering-technology`
+=======
+    tags: ["math", "computer-science", "physics", "logic"],
+    interests: ["engineering", "coding", "ai"],
+    careers: ["AI Engineer", "Software Developer", "Data Scientist", "ML Engineer", "Full Stack Developer"],
+    highlights: ["AI & Robotics Labs", "Apple Mac Lab", "Mentors from IIT & IIM", "AI-integrated curriculum"],
+    blurb: "The flagship program at NIILM — every core CS subject is paired with hands-on AI, ML and Data Science project work."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   },
   {
     id: "ece",
@@ -28,11 +42,17 @@ export const PROGRAMS = [
     specialisation: "Embedded Systems · IoT",
     tags: ["physics", "math", "computer-science"],
     interests: ["engineering", "electronics"],
+<<<<<<< HEAD
     streamFit: ["non-medical", "both-combined"],
     careers: ["IoT Engineer", "Embedded Systems Developer", "Hardware Engineer", "Robotics Technician"],
     highlights: ["Department-wise modern labs", "Industry expert sessions", "Live hardware projects"],
     blurb: "For students who like building things that sense and respond to the physical world — circuits, sensors, and connected devices.",
     link: `${SITE}/departmentslug/engineering-technology`
+=======
+    careers: ["IoT Engineer", "Embedded Systems Developer", "Hardware Engineer", "Robotics Technician"],
+    highlights: ["Department-wise modern labs", "Industry expert sessions", "Live hardware projects"],
+    blurb: "For students who like building things that sense and respond to the physical world — circuits, sensors, and connected devices."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   },
   {
     id: "mech",
@@ -41,11 +61,17 @@ export const PROGRAMS = [
     specialisation: "Robotics · Automation",
     tags: ["physics", "math"],
     interests: ["engineering", "machines"],
+<<<<<<< HEAD
     streamFit: ["non-medical", "both-combined"],
     careers: ["Robotics Engineer", "Automation Engineer", "Design Engineer", "Manufacturing Engineer"],
     highlights: ["AI & Robotics Labs", "Industrial visits", "Hands-on practical learning"],
     blurb: "For students fascinated by machines, robotics and how automation is transforming manufacturing.",
     link: `${SITE}/departmentslug/engineering-technology`
+=======
+    careers: ["Robotics Engineer", "Automation Engineer", "Design Engineer", "Manufacturing Engineer"],
+    highlights: ["AI & Robotics Labs", "Industrial visits", "Hands-on practical learning"],
+    blurb: "For students fascinated by machines, robotics and how automation is transforming manufacturing."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   },
   {
     id: "civil",
@@ -54,11 +80,17 @@ export const PROGRAMS = [
     specialisation: "Smart Infrastructure",
     tags: ["physics", "math"],
     interests: ["engineering", "infrastructure"],
+<<<<<<< HEAD
     streamFit: ["non-medical", "both-combined"],
     careers: ["Civil Engineer", "Infrastructure Planner", "Site Engineer", "Urban Planner"],
     highlights: ["Real-world infrastructure projects", "Industry mentorship", "Research & innovation focus"],
     blurb: "For students who want to design and build the smart cities and infrastructure of tomorrow.",
     link: `${SITE}/departmentslug/engineering-technology`
+=======
+    careers: ["Civil Engineer", "Infrastructure Planner", "Site Engineer", "Urban Planner"],
+    highlights: ["Real-world infrastructure projects", "Industry mentorship", "Research & innovation focus"],
+    blurb: "For students who want to design and build the smart cities and infrastructure of tomorrow."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   },
   {
     id: "electrical",
@@ -67,6 +99,7 @@ export const PROGRAMS = [
     specialisation: "Renewable Energy · Smart Grid",
     tags: ["physics", "math"],
     interests: ["engineering", "energy"],
+<<<<<<< HEAD
     streamFit: ["non-medical", "both-combined"],
     careers: ["Electrical Engineer", "Renewable Energy Specialist", "Power Systems Engineer"],
     highlights: ["Smart classrooms", "Industry-oriented curriculum", "Research on emerging tech"],
@@ -193,10 +226,53 @@ export const PROGRAMS = [
   {
     id: "fashion",
     group: "Fashion Designing",
+=======
+    careers: ["Electrical Engineer", "Renewable Energy Specialist", "Power Systems Engineer"],
+    highlights: ["Smart classrooms", "Industry-oriented curriculum", "Research on emerging tech"],
+    blurb: "For students interested in power systems and the shift towards renewable, sustainable energy."
+  },
+  {
+    id: "law",
+    group: "Commerce & Management",
+    name: "BA-LLB / B.COM-LLB / BBA-LLB",
+    specialisation: "Law integrated with Arts, Commerce & Business",
+    tags: ["arts", "economics", "commerce"],
+    interests: ["management", "law"],
+    careers: ["Lawyer", "Corporate Counsel", "Legal Advisor", "Business Manager"],
+    highlights: ["AI-integrated learning even in Law", "Industry mentorship", "Placement preparation"],
+    blurb: "For students who enjoy debate, reasoning and business — a five-year integrated path into law."
+  },
+  {
+    id: "pharmacy",
+    group: "Professional Programs",
+    name: "Pharmacy",
+    specialisation: "Pharmaceutical Sciences",
+    tags: ["biology", "chemistry"],
+    interests: ["pharmacy", "healthcare"],
+    careers: ["Pharmacist", "Drug Researcher", "Clinical Research Associate"],
+    highlights: ["AI-integrated curriculum", "Research & innovation labs", "Industry mentorship"],
+    blurb: "For students who enjoy biology and chemistry and want a career in healthcare and medicine."
+  },
+  {
+    id: "agriculture",
+    group: "Professional Programs",
+    name: "Agriculture",
+    specialisation: "Modern & Smart Agriculture",
+    tags: ["biology", "agriculture-science"],
+    interests: ["agriculture"],
+    careers: ["Agricultural Scientist", "Farm Manager", "Agri-Tech Entrepreneur"],
+    highlights: ["Hands-on field learning", "AI applied to agriculture", "Research-driven curriculum"],
+    blurb: "For students interested in farming, food systems and how technology is transforming agriculture."
+  },
+  {
+    id: "fashion",
+    group: "Professional Programs",
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
     name: "Fashion Design",
     specialisation: "Design & Creative Industries",
     tags: ["arts"],
     interests: ["design", "fashion"],
+<<<<<<< HEAD
     streamFit: ["humanities"],
     careers: ["Fashion Designer", "Stylist", "Textile Entrepreneur"],
     highlights: ["Creative studios", "Industry mentorship", "Live projects"],
@@ -206,10 +282,20 @@ export const PROGRAMS = [
   {
     id: "beauty",
     group: "Beauty and Wellness",
+=======
+    careers: ["Fashion Designer", "Stylist", "Textile Entrepreneur"],
+    highlights: ["Creative studios", "Industry mentorship", "Live projects"],
+    blurb: "For creatively-minded students who want to build a career in design and fashion."
+  },
+  {
+    id: "beauty",
+    group: "Professional Programs",
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
     name: "Beauty & Wellness",
     specialisation: "Wellness & Personal Care Industry",
     tags: ["arts"],
     interests: ["beauty", "wellness"],
+<<<<<<< HEAD
     streamFit: ["humanities"],
     careers: ["Wellness Consultant", "Salon Entrepreneur", "Cosmetology Expert"],
     highlights: ["Industry-oriented training", "Practical skill labs"],
@@ -219,10 +305,20 @@ export const PROGRAMS = [
   {
     id: "hotel",
     group: "Hospitality & Tourism Management",
+=======
+    careers: ["Wellness Consultant", "Salon Entrepreneur", "Cosmetology Expert"],
+    highlights: ["Industry-oriented training", "Practical skill labs"],
+    blurb: "For students drawn to the beauty and wellness industry, one of the fastest growing service sectors."
+  },
+  {
+    id: "hotel",
+    group: "Professional Programs",
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
     name: "Hotel Management",
     specialisation: "Hospitality & Tourism",
     tags: ["arts", "commerce"],
     interests: ["hospitality"],
+<<<<<<< HEAD
     streamFit: ["humanities", "commerce"],
     careers: ["Hotel Manager", "Event Manager", "Hospitality Entrepreneur"],
     highlights: ["Industry visits", "Personality development", "Placement support"],
@@ -315,6 +411,23 @@ export const DEGREE_OPTIONS = [
   { id: "bpharm", label: "B.Pharm", icon: "Pill", leadsTo: "pharmacy" },
   { id: "llb", label: "LLB / BA-LLB", icon: "Scale", leadsTo: "law" },
   { id: "degree-other", label: "Other Degree", icon: "FileBadge", leadsTo: "working-professional" }
+=======
+    careers: ["Hotel Manager", "Event Manager", "Hospitality Entrepreneur"],
+    highlights: ["Industry visits", "Personality development", "Placement support"],
+    blurb: "For outgoing students who enjoy people, service and the hospitality industry."
+  }
+];
+
+export const SUBJECTS = [
+  { id: "math", label: "Mathematics", icon: "Calculator" },
+  { id: "physics", label: "Physics", icon: "Atom" },
+  { id: "chemistry", label: "Chemistry", icon: "FlaskConical" },
+  { id: "biology", label: "Biology", icon: "Dna" },
+  { id: "computer-science", label: "Computer Science", icon: "Code2" },
+  { id: "economics", label: "Economics / Business Studies", icon: "ChartBar" },
+  { id: "arts", label: "Arts / Humanities", icon: "Palette" },
+  { id: "agriculture-science", label: "Agriculture Science", icon: "Sprout" }
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 ];
 
 export const INTERESTS = [
@@ -337,12 +450,24 @@ export const ENGINEERING_FOCUS = [
 ];
 
 export const CAREER_JOURNEY = [
+<<<<<<< HEAD
   "Class 10 / 12", "Choose NIILM", "Learn Skills", "Build Projects", "Internships", "Placements", "Industry Professional", "Tech / Field Leader"
+=======
+  "Class 12",
+  "Choose NIILM",
+  "Learn Skills",
+  "Build Projects",
+  "Internships",
+  "Placements",
+  "Industry Professional",
+  "Tech / Field Leader"
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 ];
 
 export const DREAM_COMPANIES = [
   "Google", "Microsoft", "Amazon", "Infosys", "TCS", "Accenture", "Adobe", "NVIDIA", "Oracle"
 ];
+<<<<<<< HEAD
 
 // ---------------- Class 12 subjects (distinct from Class 10!) ----------------
 // Class 12 students are already inside a stream, so they pick from the real
@@ -400,3 +525,5 @@ export const SUBJECT_LABELS = {};
 
 
 export const SUBJECTS = BOARD_SUBJECTS.cbse;
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c

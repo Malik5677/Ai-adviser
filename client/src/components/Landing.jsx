@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { Suspense, lazy } from "react";
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { sfx } from "../utils/sound";
 
+<<<<<<< HEAD
 const AISparkLottie = lazy(() => import("./AISparkLottie"));
 
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 export default function Landing({ onStart }) {
   return (
     <motion.div
@@ -19,9 +25,15 @@ export default function Landing({ onStart }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.05, duration: 0.5 }}
       >
+<<<<<<< HEAD
         <Suspense fallback={<div style={{ width: 92, height: 92 }} />}>
           <AISparkLottie size={92} />
         </Suspense>
+=======
+        <div style={{ width: 92, height: 92, color: "white" }}>
+          AI
+        </div>
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
       </motion.div>
 
       <motion.div
@@ -58,12 +70,23 @@ export default function Landing({ onStart }) {
         type="button"
         onClick={() => {
           sfx.advance();
+<<<<<<< HEAD
           onStart();
+=======
+          onStart?.();
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.75, duration: 0.6 }}
+<<<<<<< HEAD
         whileHover={{ scale: 1.05, boxShadow: "0 0 40px -6px rgba(34,211,238,0.65)" }}
+=======
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 40px -6px rgba(34,211,238,0.65)",
+        }}
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         whileTap={{ scale: 0.96 }}
         className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-niilm-cyan via-niilm-blue to-niilm-violet px-8 py-4 font-semibold text-niilm-navy shadow-[0_0_30px_-6px_rgba(34,211,238,0.5)]"
       >
@@ -85,4 +108,8 @@ export default function Landing({ onStart }) {
       </motion.div>
     </motion.div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c

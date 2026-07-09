@@ -8,6 +8,7 @@ import ProgressBar from "./components/ProgressBar";
 import Landing from "./components/Landing";
 import StepName from "./components/StepName";
 import StepQualification from "./components/StepQualification";
+<<<<<<< HEAD
 import StepBoard from "./components/StepBoard";
 import StepSubjects from "./components/StepSubjects";
 import StepStream from "./components/StepStream";
@@ -18,6 +19,14 @@ import Loading from "./components/Loading";
 
 import { getRecommendation } from "./api";
 import { BOARD_SUBJECTS, SUBJECTS_12 } from "./data/niilmData";
+=======
+import StepSubjects from "./components/StepSubjects";
+import StepInterest from "./components/StepInterest";
+import StepEngineeringFocus from "./components/StepEngineeringFocus";
+import Loading from "./components/Loading";
+
+import { getRecommendation } from "./api";
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
 // Heavy, non-critical visuals are code-split so the first paint (landing
 // screen + questionnaire) loads fast. They stream in only when needed.
@@ -27,12 +36,18 @@ const Result = lazy(() => import("./components/Result"));
 const initialAnswers = {
   name: "",
   qualification: "",
+<<<<<<< HEAD
   board: "",
   subjects: [],
   stream: "",
   interest: "",
   engineeringFocus: "",
   qualificationDetail: ""
+=======
+  subjects: [],
+  interest: "",
+  engineeringFocus: ""
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 };
 
 export default function App() {
@@ -41,6 +56,7 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
+<<<<<<< HEAD
   const isClass10 = answers.qualification === "10th";
   const isClass12 = answers.qualification === "12th";
   const isDiplomaOrGrad = answers.qualification === "diploma" || answers.qualification === "graduate";
@@ -56,17 +72,35 @@ export default function App() {
     if (showEngineeringFocus) f.push("engineeringFocus");
     return f;
   }, [isClass10, isDiplomaOrGrad, showEngineeringFocus]);
+=======
+  const showSubjects = answers.qualification === "12th";
+  const showEngineeringFocus = answers.interest === "engineering";
+
+  const flow = useMemo(() => {
+    const f = ["name", "qualification"];
+    if (showSubjects) f.push("subjects");
+    f.push("interest");
+    if (showEngineeringFocus) f.push("engineeringFocus");
+    return f;
+  }, [showSubjects, showEngineeringFocus]);
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 
   const stepIndex = flow.indexOf(stage);
   const stepLabels = {
     name: "Your Name",
     qualification: "Qualification",
+<<<<<<< HEAD
     board: "Your Board",
     subjects: "Favourite Subjects",
     stream: "Your Stream",
     interest: "Your Interest",
     engineeringFocus: "Engineering Focus",
     qualificationDetail: "What You Hold"
+=======
+    subjects: "Favourite Subjects",
+    interest: "Your Interest",
+    engineeringFocus: "Engineering Focus"
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   };
 
   const goTo = (nextStage) => setStage(nextStage);
@@ -82,15 +116,22 @@ export default function App() {
       setError("Something went wrong reaching the AI advisor. Showing best-effort local match.");
       setResult({
         source: "local-engine",
+<<<<<<< HEAD
         type: "program",
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         primary: {
           id: "cse-ai",
           group: "B.Tech Engineering",
           name: "B.Tech Computer Science Engineering",
           specialisation: "AI · Machine Learning · Data Science",
           careers: ["AI Engineer", "Software Developer", "Data Scientist"],
+<<<<<<< HEAD
           blurb: "NIILM's flagship, AI-integrated engineering program.",
           link: "https://www.niilmuniversity.ac.in/departmentslug/engineering-technology"
+=======
+          blurb: "NIILM's flagship, AI-integrated engineering program."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         },
         alternates: [],
         headline: `${finalAnswers.name}, let's explore NIILM together!`,
@@ -146,13 +187,18 @@ export default function App() {
             onBack={() => goTo("name")}
             onNext={(qualification) => {
               setAnswers((a) => ({ ...a, qualification }));
+<<<<<<< HEAD
               if (qualification === "10th") goTo("board");
               else if (qualification === "diploma" || qualification === "graduate") goTo("qualificationDetail");
               else goTo("subjects");
+=======
+              goTo(qualification === "12th" ? "subjects" : "interest");
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
             }}
           />
         )}
 
+<<<<<<< HEAD
         {/* ---------------- Class 10 path ---------------- */}
         {stage === "board" && (
           <StepBoard
@@ -199,6 +245,11 @@ export default function App() {
             key="subjects-12"
             subjectList={SUBJECTS_12}
             subtitle="Pick one or more Class 12 subjects — this helps us match a program that genuinely fits."
+=======
+        {stage === "subjects" && (
+          <StepSubjects
+            key="subjects"
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
             value={answers.subjects}
             onBack={() => goTo("qualification")}
             onNext={(subjects) => {
@@ -212,7 +263,11 @@ export default function App() {
           <StepInterest
             key="interest"
             value={answers.interest}
+<<<<<<< HEAD
             onBack={() => goTo("subjects")}
+=======
+            onBack={() => goTo(showSubjects ? "subjects" : "qualification")}
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
             onNext={(interest) => {
               const updated = { ...answers, interest };
               setAnswers(updated);
@@ -238,6 +293,7 @@ export default function App() {
           />
         )}
 
+<<<<<<< HEAD
         {/* ---------------- Diploma / Graduate path ---------------- */}
         {stage === "qualificationDetail" && (
           <StepQualificationDetail
@@ -253,6 +309,8 @@ export default function App() {
           />
         )}
 
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
         {stage === "loading" && <Loading key="loading" name={answers.name} />}
 
         {stage === "result" && (

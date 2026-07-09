@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import StepShell from "./StepShell";
 import SelectCard from "./SelectCard";
+<<<<<<< HEAD
 import { sfx } from "../utils/sound";
 
 /**
@@ -13,6 +14,12 @@ import { sfx } from "../utils/sound";
  * nonsensical recommendations).
  */
 export default function StepSubjects({ subjectList, subtitle, value = [], onNext, onBack }) {
+=======
+import { SUBJECTS } from "../data/niilmData";
+import { sfx } from "../utils/sound";
+
+export default function StepSubjects({ value = [], onNext, onBack }) {
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
   const [selected, setSelected] = useState(value);
 
   const toggle = (id) => {
@@ -22,12 +29,20 @@ export default function StepSubjects({ subjectList, subtitle, value = [], onNext
   return (
     <StepShell
       title="Which subjects do you enjoy most?"
+<<<<<<< HEAD
       subtitle={subtitle || "Pick one or more — this helps us understand your strengths."}
+=======
+      subtitle="Pick one or more — this helps us understand your strengths."
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
       onBack={onBack}
       wide
     >
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<<<<<<< HEAD
         {subjectList.map((s, i) => (
+=======
+        {SUBJECTS.map((s, i) => (
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
           <SelectCard
             key={s.id}
             label={s.label}

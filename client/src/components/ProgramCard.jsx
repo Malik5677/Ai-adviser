@@ -4,6 +4,7 @@ import { GraduationCap, ArrowUpRight } from "lucide-react";
 
 const GROUP_GRADIENTS = {
   "B.Tech Engineering": "from-niilm-cyan/30 via-niilm-blue/20 to-transparent",
+<<<<<<< HEAD
   "Computer Science & Applications": "from-niilm-cyan/30 via-niilm-blue/20 to-transparent",
   "Commerce & Management": "from-niilm-gold/30 via-niilm-violet/20 to-transparent",
   "Legal Studies": "from-niilm-gold/30 via-niilm-blue/20 to-transparent",
@@ -17,6 +18,10 @@ const GROUP_GRADIENTS = {
   "Beauty and Wellness": "from-pink-400/25 via-niilm-gold/15 to-transparent",
   "Hospitality & Tourism Management": "from-niilm-gold/25 via-pink-400/10 to-transparent",
   "Working Professionals": "from-niilm-cyan/25 via-niilm-gold/15 to-transparent"
+=======
+  "Commerce & Management": "from-niilm-gold/30 via-niilm-violet/20 to-transparent",
+  "Professional Programs": "from-niilm-violet/30 via-niilm-cyan/15 to-transparent"
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
 };
 
 export default function ProgramCard({ program, featured = false }) {
@@ -86,6 +91,7 @@ export default function ProgramCard({ program, featured = false }) {
           <ArrowUpRight size={14} />
         </div>
       </div>
+<<<<<<< HEAD
 
       {program.link && (
         <a
@@ -98,6 +104,8 @@ export default function ProgramCard({ program, featured = false }) {
           Check it out on NIILM University →
         </a>
       )}
+=======
+>>>>>>> 215a9ada50c7abbde7c5d7b4601aa9ea31fa6a3c
     </motion.div>
   );
 }
